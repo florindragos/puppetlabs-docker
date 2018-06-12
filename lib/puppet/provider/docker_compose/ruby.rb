@@ -11,7 +11,7 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
     containers = docker([
                           'ps',
                           '--format',
-                          "{{.Label \"com.docker.compose.service\"}}-{{.Image}}",
+                          %q{{{.Label "com.docker.compose.service"}}-{{.Image}}},
                           '--filter',
                           "label=com.docker.compose.project=#{project}",
                         ]).split("\n")
