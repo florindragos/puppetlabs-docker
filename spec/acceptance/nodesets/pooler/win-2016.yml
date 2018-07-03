@@ -11,6 +11,14 @@ HOSTS:
     roles:
       - default
       - agent
+      - swarm-master
+    platform: windows-2016-x86_64
+    hypervisor: vmpooler
+    template: Delivery/Quality Assurance/Templates/vCloud/win-2016-x86_64
+  win-2016-a:
+    roles:
+      - agent
+      - swarm-slave
     platform: windows-2016-x86_64
     hypervisor: vmpooler
     template: Delivery/Quality Assurance/Templates/vCloud/win-2016-x86_64
