@@ -56,7 +56,7 @@ describe 'the Puppet Docker module' do
         # Delete all running containers
         shell("#{docker_command} rm -f $(#{docker_command} ps -a -q) || true")
         # Delete all existing images
-        shell("#{docker_command} rmi $(#{docker_command} images -q) || true")
+        shell("#{docker_command} rmi -f $(#{docker_command} images -q) || true")
         # Check to make sure no images are present
         shell("#{docker_command} images | wc -l") do |r|
           expect(r.stdout).to match(/^0|1$/)
