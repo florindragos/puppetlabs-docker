@@ -79,6 +79,7 @@ describe 'docker stack' do
         end
 
         it 'should not find a docker stack' do
+            sleep 3
             shell('docker stack ls') do |r|
                expect(r.stdout).to_not match(/web/)
             end
