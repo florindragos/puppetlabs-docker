@@ -34,6 +34,7 @@ namespace :acceptance do
         RSpec::Core::RakeTask.new("#{config}".to_sym => [:spec_prep]) do |t|
           ENV['BEAKER_keyfile'] = '~/.ssh/id_rsa-acceptance' if ns == :pooler
           ENV['BEAKER_set'] = "#{ns}/#{config}"
+          # ENV['BEAKER_PUPPET_COLLECTION'] = 'puppet6'
           t.pattern = 'spec/acceptance'
         end
       end

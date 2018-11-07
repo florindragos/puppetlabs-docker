@@ -59,7 +59,7 @@ class docker::repos (
           $gpgkey = $key_source
           $gpgkey_check = $key_check_source
         if ($docker::use_upstream_package_source) {
-          yumrepo { 'docker':
+          Yumrepo { 'docker':
             descr    => 'Docker',
             baseurl  => $baseurl,
             gpgkey   => $gpgkey,

@@ -76,9 +76,11 @@ describe 'docker stack' do
 
         it 'should be idempotent' do
             apply_manifest(destroy, :catch_changes=>true)
+            sleep 5
         end
 
         it 'should not find a docker stack' do
+          sleep 5
             shell('docker stack ls') do |r|
                expect(r.stdout).to_not match(/web/)
             end
@@ -126,7 +128,7 @@ describe 'docker stack' do
             code
 
             apply_manifest(@destroy_code, :catch_failures=>true)
-            sleep 5 # wait for containers to stop
+            sleep 10 # wait for containers to stop
         end
     
         it 'should be idempotent' do
