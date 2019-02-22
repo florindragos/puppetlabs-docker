@@ -50,6 +50,9 @@ gems['puppet'] = location_for(puppet_version)
 gems['facter'] = location_for(facter_version) if facter_version
 gems['hiera'] = location_for(hiera_version) if hiera_version
 
+gem 'solid_waffle', git: "https://#{ENV.fetch("GITHUB_TOKEN")}@github.com/puppetlabs/solid-waffle.git"
+gem 'pdk', git: 'https://github.com/tphoney/pdk.git', branch: 'pin_cri'
+
 if Gem.win_platform? && puppet_version =~ %r{^(file:///|git://)}
   # If we're using a Puppet gem on Windows which handles its own win32-xxx gem
   # dependencies (>= 3.5.0), set the maximum versions (see PUP-6445).

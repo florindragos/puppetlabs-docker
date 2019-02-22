@@ -1,0 +1,6 @@
+---
+groups:
+- name: ssh_nodes
+  nodes: []
+- name: winrm_nodes
+  nodes: []
